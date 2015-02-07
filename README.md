@@ -1,10 +1,9 @@
-## custom_R
+# custom_R
 This is a simple repository for storing and sharing my R creations. 
 
 Although I've been working with R for a while, I have only recently begun trying to produce robust, stranger-friendly code. Please approach with a critical eye. Suggestions for improvement are always welcome!
 
-## Item Descriptions
-* robust_packages_loader.R
+## robust_packages_loader.R
 
 I often find myself sharing short R snippets with friends, colleagues, and clients who are unfamiliar with R. Or I dig up one of my snippets on a strange computer. Or I just want to load a bunch of packages quickly. 
 
