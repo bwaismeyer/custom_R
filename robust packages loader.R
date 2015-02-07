@@ -1,6 +1,9 @@
 # goal: Load a given set of packages, installing any missing packages.
 #       Return a dataframe that can be tested to verify that named packages
 #       were loaded successfully.
+#
+#       Where possible, minimize the noisy output that usually comes with
+#       package loading.
 
 # sketch of function
 # - input: vector of package names to load
@@ -24,7 +27,7 @@ robust_single_loader <- function(package_name) {
     check_list <- list(package_name,
                        FALSE,
                        "No attempt to load.")
-    names(check_list) <- c("package Name", 
+    names(check_list) <- c("Package Name", 
                            "Load Success",
                            "Notes")
     
@@ -43,6 +46,8 @@ robust_single_loader <- function(package_name) {
     } else {
         
         # if unsuccessful, attempt to install the package and load
+        # note: the capture.output simply catches the noisy "print" statements
+        #       usually produced by install.packages
         capture.output(install.packages(package_name, quiet = TRUE))
         was_installed <- require(package_name, 
                                  character.only = TRUE,
@@ -86,6 +91,8 @@ robust_packages_loader <- function(vector_of_names) {
     
     # loop over the vector of names with the robust_single_loader function
     for(i in vector_of_names) {
+        # Note: warnings suppressed in favor of reporting warnings/errors
+        #       in the output dataframe itself
         current_load_report <- suppressWarnings(robust_single_loader(i))
         load_success_collection <- c(load_success_collection,
                                     current_load_report[["Load Success"]])
@@ -93,7 +100,7 @@ robust_packages_loader <- function(vector_of_names) {
                               current_load_report[["Notes"]])
     }
     
-    # combine the package names with their Load Success for a final report
+    # combine the package names with their Load Success/Notes for a final report
     report <- cbind(vector_of_names, load_success_collection, notes_collection)
     report <- data.frame(report)
     names(report) <- c("package_name", "load_succeeded", "notes")
