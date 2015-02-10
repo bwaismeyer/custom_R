@@ -1,3 +1,12 @@
+# Author: Brian Waismeyer
+# Contact: bwaismeyer@gmail.com
+
+# Date created: 2/6/2015
+# Date updated: 2/10/2015
+
+###############################################################################
+## SCRIPT OVERVIEW
+
 # goal: Load a given set of packages, installing any missing packages.
 #       Return a dataframe that can be tested to verify that named packages
 #       were loaded successfully.
@@ -75,7 +84,7 @@ robust_single_loader <- function(package_name) {
 ###############################################################################
 # defining the big function
 
-robust_packages_loader <- function(vector_of_names) {
+robust_packages_loader <- function(vector_of_names = NULL) {
     # verify that input is a vector of strings; terminate if not
     if(is.character(vector_of_names) == FALSE) {
         stop(paste0("Please enter a package name or vector of package names.",
