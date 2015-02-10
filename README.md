@@ -5,14 +5,17 @@ Although I've been working with R for a while, I have only recently begun trying
 
 ### Table of Contents
 [general script template](#general-script-template)
+[robust packages loader](#robust-packages-loader)
 
-#### general script template - 2-7-2015.R
 <a id = "general-script-template"></a>
+#### general script template - 2-7-2015.R
+
 
 This is simply the general-purpose script template I've been using for a while. I made minor edits on 2-7-2015 and added the date to the title to distinguish it from previous drafts (and the scripts built on those drafts).
 
 I am prone to stuffing my scripts with too much structure but I think this template strikes a nice balance between capturing key details, getting you started, and getting out of way when you need to start coding.
 
+<a id = "robust-packages-loader"></a>
 #### robust packages loader.R
 
 I often find myself sharing short R snippets with friends, colleagues, and clients who are unfamiliar with R. Or I dig up one of my snippets on a strange computer. Or I just want to load a bunch of packages quickly. 
