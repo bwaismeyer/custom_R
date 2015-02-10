@@ -4,8 +4,9 @@ This is a simple repository for storing and sharing my R creations.
 Although I've been working with R for a while, I have only recently begun trying to produce robust, stranger-friendly code. Please approach with a critical eye. Suggestions for improvement are always welcome!
 
 ### Table of Contents
-[general script template](#general-script-template)
-[robust packages loader](#robust-packages-loader)
+* [general script template](#general-script-template) 
+* [robust packages loader](#robust-packages-loader)
+* [simple code line counter](#simple-code-line-counter)
 
 <a id = "general-script-template"></a>
 #### general script template - 2-7-2015.R
@@ -33,8 +34,23 @@ robust_packages_loader() takes a character vector of package names, runs the rob
 - The "notes" column gives a short description of the package status. "Already installed" means the package was already available on the local device and was loaded successfully. "Installed then loaded" means the package was not available but was installed. "Load and/or install failed" means that the function could not resolve the issue. This will most often be because it has been given an incorrect package name (e.g., "gplot2" instead of "ggplot2") but can occur for other reasons. The user should investigate.
 
 Example call that would load (and install if needed) the awesome ggplot2 and lubridate libraries and would return a fail report for the non-existent cats library.
-'''R
-package_names <- c("ggplot2", "lubridate", "cats)
+```R
+package_names <- c("ggplot2", "lubridate", "cats")
 
 robust_packages_loader(package_names)
-'''
+```
+
+<a id = "simple-code-line-counter"></a>
+#### simple code line counter.R
+I regularly track how long various tasks take me to complete. This is both a motivational tool for staying focused and a nifty way to generate data for predicting future task completion time.
+
+This script simply tries to count the number of lines of functional code in a given R script. This is an early, quick-and-dirty draft of the script and makes no effort to be smart.
+
+It counts all the lines then removes the number of lines that are blank or that are comments. If a "line" of code is broken across multiple lines in the R script, it is counted multiple times.
+
+Code is not robust - invalid input WILL make it explode, errors are not handled, messages not given, etc.
+
+Example call that would count the lines in a local R script.
+```R
+simple_code_counter("./my_R_script.R")
+```
