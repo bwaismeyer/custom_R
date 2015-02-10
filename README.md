@@ -4,10 +4,10 @@ This is a simple repository for storing and sharing my R creations.
 Although I've been working with R for a while, I have only recently begun trying to produce robust, stranger-friendly code. Please approach with a critical eye. Suggestions for improvement are always welcome!
 
 ### Table of Contents
-[general script template] [#general-script-template--2-7-2015.R]
-
+[general script template](#general-script-template)
 
 #### general script template - 2-7-2015.R
+<a id = "general-script-template"></a>
 
 This is simply the general-purpose script template I've been using for a while. I made minor edits on 2-7-2015 and added the date to the title to distinguish it from previous drafts (and the scripts built on those drafts).
 
